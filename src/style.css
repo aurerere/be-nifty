@@ -1,0 +1,53 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /*line-height: 1.5;*/
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: black;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  max-height: 100px;
+  width: 80svw;
+  padding: 0 ;
+  display: flex;
+  border-bottom: 3px solid white;
+}
+
+.travel {
+  position: relative;
+  flex-grow: 1;
+}
+
+.item {
+  height: 100px; /* Uses container's max-height */
+  width: auto; /* Width adjusts based on aspect ratio */
+  transition: all 0.2s ease-in-out;
+}
+
+#girl {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#girl-placeholder {
+  opacity: 0;
+}
