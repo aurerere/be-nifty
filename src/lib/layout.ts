@@ -1,5 +1,5 @@
-import bands from '../assets/bands.svg'
-import girl from '../assets/girl.svg'
+import bands from "../assets/bands.svg";
+import girl from "../assets/girl.svg";
 
 export const LAYOUT = `
 <div class="field">
@@ -10,4 +10,4 @@ export const LAYOUT = `
   <img src="${bands}" class="item" alt="Bands" id="bands" />
 </div>
 <span id="progress">0%</span>
-`
+`;

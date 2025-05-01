@@ -1,9 +1,9 @@
-import './style.css'
-import {LAYOUT} from "./lib/layout.ts";
-import {Game} from "./lib/game.ts";
-import {CLICK_STEP, DOLLAR_STEP} from "./lib/const.ts";
+import "./style.css";
+import { LAYOUT } from "./lib/layout.ts";
+import { Game } from "./lib/game.ts";
+import { CLICK_STEP, DOLLAR_STEP } from "./lib/const.ts";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = LAYOUT
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = LAYOUT;
 
 let interval: ReturnType<typeof setInterval> | undefined;
 
@@ -16,26 +16,23 @@ const game = new Game({
   },
   onStop: () => {
     if (interval) {
-      clearInterval(interval)
+      clearInterval(interval);
     }
   },
   onCurrentProgressUpdate: (currentProgress: number) => {
     girlEl.style.left = `${currentProgress}%`;
-    progressEl.innerText = `${currentProgress.toFixed(1)}%`
-  }
+    progressEl.innerText = `${currentProgress.toFixed(1)}%`;
+  },
 });
 
 window.addEventListener("click", () => {
-  game.onActionTriggered(CLICK_STEP)
-})
+  game.onActionTriggered(CLICK_STEP);
+});
 
 window.addEventListener("keyup", (e: KeyboardEvent) => {
   if (e.key === "$") {
-    game.onActionTriggered(DOLLAR_STEP)
+    game.onActionTriggered(DOLLAR_STEP);
   }
 });
 
-
 game.play();
-
-
