@@ -1,6 +1,9 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -41,6 +44,13 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
+#congrats {
+  top: 0;
+  height: 100px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
 #girl {
   position: absolute;
   top: 0;
@@ -49,4 +59,15 @@ body {
 
 #girl-placeholder {
   opacity: 0;
+}
+
+#caption {
+  position: fixed;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2rem;
+  text-align: center;
 }
