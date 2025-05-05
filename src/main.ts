@@ -1,7 +1,7 @@
 import "./style.css";
 import { LAYOUT } from "./lib/layout.ts";
 import { Game } from "./lib/game.ts";
-import { CLICK_STEP, DOLLAR_STEP } from "./lib/const.ts";
+import { CLICK_STEP, CLICK_STEP_AFTER_50, DOLLAR_STEP } from "./lib/const.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = LAYOUT;
 
@@ -26,7 +26,8 @@ const game = new Game({
       clearInterval(captionLoopInterval);
     }
     
-    congratsEl.style.display = "none";
+    congratsEl.style.opacity = "1";
+    captionEl.style.display = "none";
   },
   onCurrentProgressUpdate: (currentProgress: number) => {
     girlEl.style.left = `${currentProgress}%`;
@@ -46,12 +47,14 @@ const game = new Game({
 });
 
 window.addEventListener("click", () => {
-  game.onActionTriggered(CLICK_STEP);
+  game.onActionTriggered(game.progress < 60 ? CLICK_STEP : CLICK_STEP_AFTER_50);
 });
 
 window.addEventListener("keyup", (e: KeyboardEvent) => {
   if (e.key === "$") {
     game.onActionTriggered(DOLLAR_STEP);
+  } if (e.key === " ") {
+    game.onActionTriggered(game.progress < 60 ? CLICK_STEP : CLICK_STEP_AFTER_50);
   }
 });
 

@@ -46,7 +46,7 @@ export class Game {
   }
 
   private captionLoop() {
-    if (this.currentProgress >= 0) {
+    if (this.currentProgress <= 0) {
       this.currentCaption = BASE_CAPTION;
       return;
     }
@@ -71,6 +71,10 @@ export class Game {
 
     this.currentCaption = newCaption;
     this.config.onCaptionUpdate(newCaption);
+  }
+  
+  get progress() {
+    return this.currentProgress;
   }
 
   play() {
